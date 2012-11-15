@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+
+<html lang="en-US">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style type="text/css">
+
+		/** ================================
+		   	 Carosello tornei
+	    	============================= */	
+
+	    body { background:#ddd; }	
+
+	    #carosello_tornei { margin:200px auto; overflow:hidden; width:800px; }
+	    #carosello_tornei .viewport { float: left; width: 682px; height: 200px; overflow: hidden; margin:2px; position: relative; }
+	    #carosello_tornei .arrow { display: none; float: left; height:24px; margin: 70px 12px 0 0; width:26px; }
+	    #carosello_tornei .next { background-position: -237px -353px; margin: 70px 0 0 13px; }
+	    #carosello_tornei .prev { background-position: -216px -353px; }
+	    #carosello_tornei .disable { visibility: hidden; }
+	    #carosello_tornei .overview { position: absolute; padding: 0; margin: 0; left: 0; top: 0; }
+	    #carosello_tornei .overview li { background-position: 3px -836px ; float: left; height: 200px; list-style-type: none; padding: 0 11px 0 8px; position: relative; text-align: center; width: 153px; }
+	    #carosello_tornei .overview li div { margin:30px 10px; }
+	    #carosello_tornei .overview li div p { padding:10px 0 0; }	
+	    #carosello_tornei .overview .titolo { font-size:16px; font-weight: bold; margin-top: 6px; text-transform: uppercase; }
+	    #carosello_tornei .overview .montepremi { color:#efc167; font-size:18px; padding:0; }
+
+	    #carosello_tornei .button_tiny { position: absolute; bottom: 4px; }
+
+
+	    #carosello_tornei2 { margin:200px auto; overflow:hidden; width:800px; }
+	    #carosello_tornei2 .viewport { float: left; width: 682px; height: 200px; overflow: hidden; margin:2px; position: relative; }
+	    #carosello_tornei2 .arrow { display: none; float: left; height:24px; margin: 70px 12px 0 0; width:26px; }
+	    #carosello_tornei2 .next { background-position: -237px -353px; margin: 70px 0 0 13px; }
+	    #carosello_tornei2 .prev { background-position: -216px -353px; }
+	    #carosello_tornei2 .disable { visibility: hidden; }
+	    #carosello_tornei2 .overview { position: absolute; padding: 0; margin: 0; left: 0; top: 0; }
+	    #carosello_tornei2 .overview li { background-position: 3px -836px ; float: left; height: 200px; list-style-type: none; padding: 0 11px 0 8px; position: relative; text-align: center; width: 153px; }
+	    #carosello_tornei2 .overview li div { margin:30px 10px; }
+	    #carosello_tornei2 .overview li div p { padding:10px 0 0; }	
+	    #carosello_tornei2 .overview .titolo { font-size:16px; font-weight: bold; margin-top: 6px; text-transform: uppercase; }
+	    #carosello_tornei2 .overview .montepremi { color:#efc167; font-size:18px; padding:0; }
+
+	    #carosello_tornei2 .button_tiny { position: absolute; bottom: 4px; }
+
+	</style>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="jQuery.tinycarousel.infinite.js"></script>
+	<script type="text/javascript">
+
+		jQuery( function(){
+
+			jQuery('#carosello_tornei').tinycarousel({
+	 			
+		 		axis : 'x',
+				display : 1,
+				animation : true,
+				duration : 1200,
+				interval : true,
+				intervaltime : 2000,
+				infinite : true
+		 
+			});
+
+
+			jQuery('#carosello_tornei2').tinycarousel({
+	 			
+		 		axis : 'x',
+				display : 1,
+				animation : true,
+				duration : 100,
+				interval : true,
+				intervaltime : 100,
+				infinite : true
+		 
+			});
+
+		});
+
+	</script>
+
+</head>
+
+<body>
+	
+	<div id="carosello_tornei" class="bigbox">
+				
+		<a class="arrow prev ir" href="#">left</a>
+
+		<div class="viewport">
+
+			<ul class="overview" style="width: 860px; left: -172px;">
+				
+				
+					<li>
+						<img src="http://games.betuniq.com/sites/games.betuniq.com/files/tournaments/09/01/2012_-_1206/sunday-dollar-small.jpg " alt="Dollaro Sunday">
+						<p class="titolo">1</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/03/2012_-_1247/mega-fifty-cents-small.jpg " alt="Mega Fifty Cents 50K GRT">
+						<p class="titolo">2</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1210/one-million-small.jpg " alt="One Million">
+						<p class="titolo">3</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1207/uniq-west-small-1000.jpg " alt="UNIQ WEST 1000 € GRT">
+						<p class="titolo">4</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1205/uniq-west-small-800.jpg " alt="UNIQ WEST 800 € GRT">
+						<p class="titolo">5</p>
+					</li>
+
+			</ul>
+
+		</div>	
+
+		<a class="arrow next ir disable" href="#">next</a>
+
+	</div>
+
+
+	<div id="carosello_tornei2" class="bigbox">
+				
+		<a class="arrow prev ir" href="#">left</a>
+
+		<div class="viewport">
+
+			<ul class="overview" style="width: 860px; left: -172px;">
+				
+				
+					<li>
+						<img src="http://games.betuniq.com/sites/games.betuniq.com/files/tournaments/09/01/2012_-_1206/sunday-dollar-small.jpg " alt="Dollaro Sunday">
+						<p class="titolo">1</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/03/2012_-_1247/mega-fifty-cents-small.jpg " alt="Mega Fifty Cents 50K GRT">
+						<p class="titolo">2</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1210/one-million-small.jpg " alt="One Million">
+						<p class="titolo">3</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1207/uniq-west-small-1000.jpg " alt="UNIQ WEST 1000 € GRT">
+						<p class="titolo">4</p>
+					</li>
+
+				
+					<li>
+						<img src="http://games.betuniq.com//sites/games.betuniq.com/files/tournaments/09/01/2012_-_1205/uniq-west-small-800.jpg " alt="UNIQ WEST 800 € GRT">
+						<p class="titolo">5</p>
+					</li>
+
+			</ul>
+
+		</div>	
+
+		<a class="arrow next ir disable" href="#">next</a>
+
+	</div>
+
+</body>
+
+</html>
