@@ -93,12 +93,8 @@
                 oTimer = setTimeout(function(){
                     iCurrent = iCurrent +1 === iSteps ? -1 : iCurrent;
                     bForward = iCurrent +1 === iSteps ? false : iCurrent === 0 ? true : bForward;
-                    if ( !options.infinite ) {
-                        oSelf.move(bForward ? 1 : -1);
-                    }
-                    else {
-                        oSelf.infinite_move(bForward ? 1 : -1);
-                    }
+                    oSelf.move(bForward ? 1 : -1);
+                    
                     
                 }, options.intervaltime);
             }
@@ -126,7 +122,16 @@
         this.stop  = function () { clearTimeout(oTimer); bPause = true; };
         this.start = function () { bPause = false; setTimer(); };
         this.move  = function (iDirection, bPublic)
-        {
+        {   
+
+            if ( options.infinite ) {
+                if (iCurrent==-1) {
+                    oContent.css({ left : -((iFirst+1)*iPageSize) });
+                    iCurrent = iFirst;
+                    this.infinite_move(1);
+                }     
+            }
+           
             iCurrent = bPublic ? iDirection : iCurrent += iDirection; 
             if(iCurrent > -1 && iCurrent < iSteps)
             {
@@ -147,38 +152,6 @@
                 setTimer();
             }
         };
-        this.infinite_move  = function (iDirection, bPublic)
-        {
-
-            if (iCurrent==-1) {
-                oContent.css({ left : -((iFirst+1)*iPageSize) });
-                iCurrent = iFirst;
-                this.infinite_move(1);
-            }
-
-            iCurrent = bPublic ? iDirection : iCurrent += iDirection;
-
-
-            if(iCurrent > -1 && iCurrent < iSteps)
-            {   
-                var oPosition = {};
-                oPosition[bAxis ? 'left' : 'top'] = -(iCurrent * (iPageSize * options.display));    
-                oContent.animate(oPosition,{
-                    queue: false,
-                    duration: options.animation ? options.duration : 0,
-                    complete: function()
-                    {
-                        if(typeof options.callback === 'function')
-                        {
-                            options.callback.call(this, oPages[iCurrent], iCurrent);
-                        }
-                    }
-                });
-                setButtons();
-                setTimer();
-            }
-    
-        };
 
        function initialize () {
 
@@ -188,10 +161,7 @@
             iCurrent = Math.min(iSteps, Math.max(1, options.start)) -2; 
             oContent.css(bAxis ? 'width' : 'height', (iPageSize * oPages.length));
             
-            if ( !options.infinite ){
-                oSelf.move(1);
-            } 
-            else {
+            if ( options.infinite ){
 
                 /* ---- Appendo e prependo item di scrolling --- */
                 $(oPages).eq(0).before( $(oPages).slice(-(iLeftover+1)).clone().addClass('cloned') );
@@ -204,10 +174,10 @@
                 iCurrent = iFirst = ($(oContent).find('li').not('.cloned').eq(0).index()-1); 
 
                 oContent.css(bAxis ? 'width' : 'height', (iPageSize * oPages.length));
-                
-                oSelf.infinite_move(1);
 
             }
+
+            oSelf.infinite_move(1);
 
             setEvents();
 
