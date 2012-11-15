@@ -11,6 +11,8 @@
  *
  * Date: 01 / 06 / 2011
  * Depends on library: jQuery
+ * Date: 15 / 11 / 2012
+ * @ilpaijin - Added infinite scrolling feature
  *
  */
 (function ($) 
@@ -59,6 +61,22 @@
         ,   bAxis     = options.axis === 'x'
         ,   iFirst    = 0  
         ;
+
+        /* ---- Primo check dei bottoni alla init--- */
+        function firstCheckControls()
+        {
+            if(options.controls)
+            {
+                oBtnPrev.fadeIn();
+                oBtnNext.fadeIn();
+            }
+            else {
+                oBtnPrev.unbind('click');
+                oBtnNext.unbind('click');
+            }
+       
+        }
+
         
         function setButtons()
         {
@@ -128,7 +146,7 @@
                 if (iCurrent==-1) {
                     oContent.css({ left : -((iFirst+1)*iPageSize) });
                     iCurrent = iFirst;
-                    this.infinite_move(1);
+                    this.move(1);
                 }     
             }
            
@@ -154,6 +172,8 @@
         };
 
        function initialize () {
+
+            firstCheckControls();
 
             iPageSize = bAxis ? $(oPages[0]).outerWidth(true) : $(oPages[0]).outerHeight(true); 
             var iLeftover = Math.ceil(((bAxis ? oViewport.outerWidth() : oViewport.outerHeight()) / (iPageSize * options.display)) -1); 
