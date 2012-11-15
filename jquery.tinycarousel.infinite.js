@@ -177,7 +177,7 @@
 
             }
 
-            oSelf.infinite_move(1);
+            oSelf.move(1);
 
             setEvents();
 
